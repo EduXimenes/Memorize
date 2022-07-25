@@ -11,7 +11,7 @@ struct ContentView: View {
     var emojis: Array<String> = ["🦖", "🐥", "🪲", "🐔","🐸", "🐵", "🐧", "🦆", "🦉", "🐝", "🐙", "🐼","🐶", "🐹", "🦇", "🐌", "🐜", "🦐", "🐖", "🦥", "🐞", "🐨",
         "🦁", "🦗", "🕷", "🦂", "🐳", "🦒", "🦧", "🐲", "🦩", "🕊", "🐕", "🦞",]
     // Podemos também declarar como : [String] que seria mesma coisa que Array<String>
-    @State var emojiCount = 4
+    @State var emojiCount = 16
     
     var body: some View {
         VStack{
@@ -23,35 +23,9 @@ struct ContentView: View {
                              }
                         }
             }
-            Spacer()
-            HStack{
-                    removeCard
-                    Spacer()
-                    addCard
-            }
-            .font(.largeTitle)
-            .padding(.horizontal)
         }
         .padding(.horizontal)
         .foregroundColor(.orange)
-    }
-    var removeCard: some View{
-        Button {
-            if emojiCount > 2{
-                emojiCount-=1
-            }
-        } label: {
-            Image(systemName: "minus.square")
-            }
-        }
-    var addCard: some View{
-        Button {
-            if emojiCount < emojis.count{
-                emojiCount+=1
-            }
-        } label: {
-                Image(systemName: "plus.square")
-            }
     }
 }
 struct CardView: View{
