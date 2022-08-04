@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var ViewModel: EmojiMemory
-    
+    // observer any change ( in view model) and rebuild if something is change
     var body: some View {
         VStack{
             ScrollView{
@@ -38,6 +38,8 @@ struct CardView: View{
             shape.fill().foregroundColor(.white)
             shape.strokeBorder(lineWidth: 5)
                 Text(card.content).font(.largeTitle)
+            }else if card.isMatched{
+                shape.opacity(0)
             }
             else {
                 shape.fill()

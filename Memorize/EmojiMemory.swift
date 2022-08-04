@@ -13,11 +13,11 @@ class EmojiMemory: ObservableObject {
         "🦁", "🦗", "🕷", "🦂", "🐳", "🦒", "🦧", "🐲", "🦩", "🕊", "🐕", "🦞",]
     
     static func createMemoryGame() -> MemoryGame<String> {
-            MemoryGame<String>(numberOfPairsOfCards: 4) { pairIndex in
+            MemoryGame<String>(numberOfPairsOfCards: 10) { pairIndex in
                 emojis[pairIndex]}
         }
     @Published private var model: MemoryGame<String> = createMemoryGame()
-        
+        // Informs that something is changed and need to be rebuilt
     var cards: Array<MemoryGame<String>.Card>{
         model.cards
     }
